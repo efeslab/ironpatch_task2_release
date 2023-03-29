@@ -1,0 +1,111 @@
+# This is the output I got from the ./compile script, but I replaced the long paths with these variables:
+
+AVR_GCC=/home/mini/.arduino15/packages/arduino/tools/avr-gcc/4.8.1-arduino2/bin/avr-gcc
+AVR_CXX=/home/mini/.arduino15/packages/arduino/tools/avr-gcc/4.8.1-arduino2/bin/avr-g++
+AVR_AR=/home/mini/.arduino15/packages/arduino/tools/avr-gcc/4.8.1-arduino2/bin/avr-ar
+BUILD_DIR=/home/mini/workspace/ironpatch/Arduino_klee/Build/
+AVR_DIR=/home/mini/.arduino15/packages/arduino/hardware/avr/1.6.2/
+INCLUDE=-I$(AVR_DIR)/cores/arduino -I$(AVR_DIR)/variants/standard
+GCC_FLAGS=-c -g -Os -w -ffunction-sections -fdata-sections -MMD -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=10813 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR
+CXX_FLAGS=-c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=10813 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR
+CXX_FLAGS_LIBS=-c -g -Os -w -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -w -x c++ -E -CC -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=10813 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR
+LIB_PATH=/home/mini/Arduino/libraries
+
+./compile.sh: input: BrakeFlasher_AVR_Vuln/BrakeFlasher_AVR_Vuln.ino
+./compile.sh: Put the output in a directory called Build
+Picked up JAVA_TOOL_OPTIONS: 
+Loading configuration...
+Initializing packages...
+Preparing boards...
+Verifying...
+/usr/share/arduino/arduino-builder -dump-prefs -logger=machine -hardware /usr/share/arduino/hardware -hardware /home/mini/.arduino15/packages -tools /usr/share/arduino/tools-builder -tools /home/mini/.arduino15/packages -libraries $(LIB_PATH) -fqbn=arduino:avr:uno -ide-version=10813 -build-path $(BUILD_DIR) -warnings=null -prefs=build.path=Build -prefs=build.warn_data_percentage=75 -prefs=runtime.tools.avrdude.path=/home/mini/.arduino15/packages/arduino/tools/avrdude/6.0.1-arduino2 -prefs=runtime.tools.avrdude-6.0.1-arduino2.path=/home/mini/.arduino15/packages/arduino/tools/avrdude/6.0.1-arduino2 -prefs=runtime.tools.avr-gcc.path=/home/mini/.arduino15/packages/arduino/tools/avr-gcc/4.8.1-arduino2 -prefs=runtime.tools.avr-gcc-4.8.1-arduino2.path=/home/mini/.arduino15/packages/arduino/tools/avr-gcc/4.8.1-arduino2 -verbose /home/mini/workspace/ironpatch/Arduino_klee/BrakeFlasher_AVR_Vuln/BrakeFlasher_AVR_Vuln.ino
+/usr/share/arduino/arduino-builder -compile -logger=machine -hardware /usr/share/arduino/hardware -hardware /home/mini/.arduino15/packages -tools /usr/share/arduino/tools-builder -tools /home/mini/.arduino15/packages -libraries $(LIB_PATH) -fqbn=arduino:avr:uno -ide-version=10813 -build-path $(BUILD_DIR) -warnings=null -prefs=build.path=Build -prefs=build.warn_data_percentage=75 -prefs=runtime.tools.avrdude.path=/home/mini/.arduino15/packages/arduino/tools/avrdude/6.0.1-arduino2 -prefs=runtime.tools.avrdude-6.0.1-arduino2.path=/home/mini/.arduino15/packages/arduino/tools/avrdude/6.0.1-arduino2 -prefs=runtime.tools.avr-gcc.path=/home/mini/.arduino15/packages/arduino/tools/avr-gcc/4.8.1-arduino2 -prefs=runtime.tools.avr-gcc-4.8.1-arduino2.path=/home/mini/.arduino15/packages/arduino/tools/avr-gcc/4.8.1-arduino2 -verbose /home/mini/workspace/ironpatch/Arduino_klee/BrakeFlasher_AVR_Vuln/BrakeFlasher_AVR_Vuln.ino
+Using board 'uno' from platform in folder: $(AVR_DIR)
+Using core 'arduino' from platform in folder: $(AVR_DIR)
+Warning: platform.txt from core 'Arduino AVR Boards' contains deprecated recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} {compiler.ar.extra_flags} "{build.path}/{archive_file}" "{object_file}", automatically converted to recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} {compiler.ar.extra_flags} "{archive_file_path}" "{object_file}". Consider upgrading this core.
+Detecting libraries used...
+$(AVR_CXX) $(CXX_FLAGS_LIBS) $(INCLUDE) $(BUILD_DIR)/sketch/BrakeFlasher_AVR_Vuln.ino.cpp -o /dev/null -DARDUINO_LIB_DISCOVERY_PHASE
+Alternatives for mcp_can.h: [CAN_BUS_Shield-master@1.0.0]
+ResolveLibrary(mcp_can.h)
+  -> candidates: [CAN_BUS_Shield-master@1.0.0]
+$(AVR_CXX) $(CXX_FLAGS_LIBS) $(INCLUDE) -I$(LIB_PATH)/CAN_BUS_Shield-master $(BUILD_DIR)/sketch/BrakeFlasher_AVR_Vuln.ino.cpp -o /dev/null -DARDUINO_LIB_DISCOVERY_PHASE
+Alternatives for SPI.h: [SPI@1.0]
+ResolveLibrary(SPI.h)
+  -> candidates: [SPI@1.0]
+$(AVR_CXX) $(CXX_FLAGS_LIBS) $(INCLUDE) -I$(LIB_PATH)/CAN_BUS_Shield-master -I$(AVR_DIR)/libraries/SPI $(BUILD_DIR)/sketch/BrakeFlasher_AVR_Vuln.ino.cpp -o /dev/null -DARDUINO_LIB_DISCOVERY_PHASE
+Alternatives for elapsedMillis.h: [elapsedMillis-master@1.0.6]
+ResolveLibrary(elapsedMillis.h)
+  -> candidates: [elapsedMillis-master@1.0.6]
+$(AVR_CXX) $(CXX_FLAGS_LIBS) $(INCLUDE) -I$(LIB_PATH)/CAN_BUS_Shield-master -I$(AVR_DIR)/libraries/SPI -I$(LIB_PATH)/elapsedMillis-master $(BUILD_DIR)/sketch/BrakeFlasher_AVR_Vuln.ino.cpp -o /dev/null -DARDUINO_LIB_DISCOVERY_PHASE
+$(AVR_CXX) $(CXX_FLAGS_LIBS) $(INCLUDE) -I$(LIB_PATH)/CAN_BUS_Shield-master -I$(AVR_DIR)/libraries/SPI -I$(LIB_PATH)/elapsedMillis-master $(LIB_PATH)/CAN_BUS_Shield-master/mcp_can.cpp -o /dev/null -DARDUINO_LIB_DISCOVERY_PHASE
+$(AVR_CXX) $(CXX_FLAGS_LIBS) $(INCLUDE) -I$(LIB_PATH)/CAN_BUS_Shield-master -I$(AVR_DIR)/libraries/SPI -I$(LIB_PATH)/elapsedMillis-master $(AVR_DIR)/libraries/SPI/SPI.cpp -o /dev/null -DARDUINO_LIB_DISCOVERY_PHASE
+Generating function prototypes...
+$(AVR_CXX) $(CXX_FLAGS_LIBS) $(INCLUDE) -I$(LIB_PATH)/CAN_BUS_Shield-master -I$(AVR_DIR)/libraries/SPI -I$(LIB_PATH)/elapsedMillis-master $(BUILD_DIR)/sketch/BrakeFlasher_AVR_Vuln.ino.cpp -o $(BUILD_DIR)/preproc/ctags_target_for_gcc_minus_e.cpp -DARDUINO_LIB_DISCOVERY_PHASE
+/usr/bin/arduino-ctags -u --language-force=c++ -f - --c++-kinds=svpf --fields=KSTtzns --line-directives $(BUILD_DIR)/preproc/ctags_target_for_gcc_minus_e.cpp
+Compiling sketch...
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) -I$(LIB_PATH)/CAN_BUS_Shield-master -I$(AVR_DIR)/libraries/SPI -I$(LIB_PATH)/elapsedMillis-master $(BUILD_DIR)/sketch/BrakeFlasher_AVR_Vuln.ino.cpp -o $(BUILD_DIR)/sketch/BrakeFlasher_AVR_Vuln.ino.cpp.o
+Compiling libraries...
+Compiling library "CAN_BUS_Shield-master"
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) -I$(LIB_PATH)/CAN_BUS_Shield-master -I$(AVR_DIR)/libraries/SPI -I$(LIB_PATH)/elapsedMillis-master $(LIB_PATH)/CAN_BUS_Shield-master/mcp_can.cpp -o $(BUILD_DIR)/libraries/CAN_BUS_Shield-master/mcp_can.cpp.o
+Compiling library "SPI"
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) -I$(LIB_PATH)/CAN_BUS_Shield-master -I$(AVR_DIR)/libraries/SPI -I$(LIB_PATH)/elapsedMillis-master $(AVR_DIR)/libraries/SPI/SPI.cpp -o $(BUILD_DIR)/libraries/SPI/SPI.cpp.o
+Compiling library "elapsedMillis-master"
+Compiling core...
+$(AVR_GCC) $(GCC_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/WInterrupts.c -o $(BUILD_DIR)/core/WInterrupts.c.o
+$(AVR_GCC) $(GCC_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/hooks.c -o $(BUILD_DIR)/core/hooks.c.o
+$(AVR_GCC) $(GCC_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/wiring.c -o $(BUILD_DIR)/core/wiring.c.o
+$(AVR_GCC) $(GCC_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/wiring_analog.c -o $(BUILD_DIR)/core/wiring_analog.c.o
+$(AVR_GCC) $(GCC_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/wiring_shift.c -o $(BUILD_DIR)/core/wiring_shift.c.o
+$(AVR_GCC) $(GCC_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/wiring_pulse.c -o $(BUILD_DIR)/core/wiring_pulse.c.o
+$(AVR_GCC) $(GCC_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/wiring_digital.c -o $(BUILD_DIR)/core/wiring_digital.c.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/HardwareSerial2.cpp -o $(BUILD_DIR)/core/HardwareSerial2.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/HardwareSerial1.cpp -o $(BUILD_DIR)/core/HardwareSerial1.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/CDC.cpp -o $(BUILD_DIR)/core/CDC.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/HardwareSerial.cpp -o $(BUILD_DIR)/core/HardwareSerial.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/HardwareSerial0.cpp -o $(BUILD_DIR)/core/HardwareSerial0.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/HID.cpp -o $(BUILD_DIR)/core/HID.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/Print.cpp -o $(BUILD_DIR)/core/Print.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/HardwareSerial3.cpp -o $(BUILD_DIR)/core/HardwareSerial3.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/WString.cpp -o $(BUILD_DIR)/core/WString.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/abi.cpp -o $(BUILD_DIR)/core/abi.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/main.cpp -o $(BUILD_DIR)/core/main.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/WMath.cpp -o $(BUILD_DIR)/core/WMath.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/new.cpp -o $(BUILD_DIR)/core/new.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/IPAddress.cpp -o $(BUILD_DIR)/core/IPAddress.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/Stream.cpp -o $(BUILD_DIR)/core/Stream.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/USBCore.cpp -o $(BUILD_DIR)/core/USBCore.cpp.o
+$(AVR_CXX) $(CXX_FLAGS) $(INCLUDE) $(AVR_DIR)/cores/arduino/Tone.cpp -o $(BUILD_DIR)/core/Tone.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/WInterrupts.c.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/hooks.c.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/wiring.c.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/wiring_analog.c.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/wiring_digital.c.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/wiring_pulse.c.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/wiring_shift.c.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/CDC.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/HID.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/HardwareSerial.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/HardwareSerial0.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/HardwareSerial1.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/HardwareSerial2.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/HardwareSerial3.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/IPAddress.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/Print.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/Stream.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/Tone.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/USBCore.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/WMath.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/WString.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/abi.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/main.cpp.o
+$(AVR_AR) rcs $(BUILD_DIR)/core/core.a $(BUILD_DIR)/core/new.cpp.o
+Linking everything together...
+$(AVR_GCC) -w -Os -Wl,--gc-sections -mmcu=atmega328p -o Build/BrakeFlasher_AVR_Vuln.ino.elf $(BUILD_DIR)/sketch/BrakeFlasher_AVR_Vuln.ino.cpp.o $(BUILD_DIR)/libraries/CAN_BUS_Shield-master/mcp_can.cpp.o $(BUILD_DIR)/libraries/SPI/SPI.cpp.o Build/core/core.a -LBuild -lm
+/home/mini/.arduino15/packages/arduino/tools/avr-gcc/4.8.1-arduino2/bin/avr-objcopy -O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0 Build/BrakeFlasher_AVR_Vuln.ino.elf Build/BrakeFlasher_AVR_Vuln.ino.eep
+/home/mini/.arduino15/packages/arduino/tools/avr-gcc/4.8.1-arduino2/bin/avr-objcopy -O ihex -R .eeprom Build/BrakeFlasher_AVR_Vuln.ino.elf Build/BrakeFlasher_AVR_Vuln.ino.hex
+Using library CAN_BUS_Shield-master at version 1.0.0 in folder: $(LIB_PATH)/CAN_BUS_Shield-master 
+Using library SPI at version 1.0 in folder: $(AVR_DIR)/libraries/SPI 
+Using library elapsedMillis-master at version 1.0.6 in folder: $(LIB_PATH)/elapsedMillis-master 
+/home/mini/.arduino15/packages/arduino/tools/avr-gcc/4.8.1-arduino2/bin/avr-size -A Build/BrakeFlasher_AVR_Vuln.ino.elf
+Sketch uses 7500 bytes (23%) of program storage space. Maximum is 32256 bytes.
+Global variables use 884 bytes (43%) of dynamic memory, leaving 1164 bytes for local variables. Maximum is 2048 bytes.

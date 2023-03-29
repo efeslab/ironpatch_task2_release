@@ -1,0 +1,13 @@
+main.cpp:101:5:int main()	192	static
+main.cpp:210:6:void SystemClock_Config()	88	static
+main.cpp:244:13:void MX_CAN_Init()	48	static
+main.cpp:302:13:void MX_TIM1_Init()	32	static
+main.cpp:353:13:void MX_TIM2_Init()	64	static
+main.cpp:422:13:void MX_TIM3_Init()	32	static
+main.cpp:473:13:void MX_TIM14_Init()	40	static
+main.cpp:522:13:void MX_USART2_UART_Init()	8	static
+main.cpp:561:13:void MX_GPIO_Init()	48	static
+main.cpp:603:6:void rx_brake_routine(unsigned char*, Bumper*)	24	static
+main.cpp:634:13:void rx_signal_routine(unsigned char*, Bumper*)	16	static
+main.cpp:648:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	16	static
+main.cpp:664:6:void Error_Handler()	8	static

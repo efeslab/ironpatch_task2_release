@@ -1,0 +1,5 @@
+main.cpp:210:6:void SystemClock_Config()	80	static
+main.cpp:603:6:void rx_brake_routine(unsigned char*, Bumper*)	12	static
+main.cpp:101:5:int main()	216	static
+main.cpp:648:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	8	static
+main.cpp:664:6:void Error_Handler()	0	static

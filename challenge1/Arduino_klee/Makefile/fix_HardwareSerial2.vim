@@ -1,0 +1,1 @@
+gg/size_t HardwareSerial::write(uint8_t c)jci{	return 0;:x

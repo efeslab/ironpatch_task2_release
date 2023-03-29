@@ -1,0 +1,6 @@
+UnitTesting.cpp:12:1:UnitTesting::UnitTesting(volatile uint32_t*, TIM_HandleTypeDef*)	8	static
+UnitTesting.cpp:21:6:bool UnitTesting::CheckInbox()	8	static
+UnitTesting.cpp:36:6:void UnitTesting::RecvMsg(long unsigned int*, unsigned char*, unsigned char*)	8	static
+UnitTesting.cpp:111:6:void UnitTesting::RecvMsgBrakeOnly(long unsigned int*, unsigned char*, unsigned char*)	8	static
+UnitTesting.cpp:157:6:void UnitTesting::RecvMsgVulnTest(long unsigned int*, unsigned char*, unsigned char*)	8	static
+UnitTesting.cpp:188:6:void UnitTesting::RecvMsgTurnSignals(long unsigned int*, unsigned char*, unsigned char*)	8	static
